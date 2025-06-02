@@ -57,13 +57,16 @@
 					<navigator class="more">More+</navigator>
 				</template>
 			</common-title>
+			
+			<view class="content">
+				<theme-item v-for="item in 8">
+					
+				</theme-item>
+				<theme-item :isMore="true"></theme-item>
+			</view>
 		</view>
 		
-		<view class="content">
-			<theme-item v-for="item in 8">
-				
-			</theme-item>
-		</view>
+		
 	</view>
 	
 </template>
@@ -150,6 +153,7 @@
 			width: 720rpx;
 			margin-top: 30rpx;
 			margin-left: 30rpx;
+			padding-bottom: 50rpx;
 			scroll-view{
 				white-space: nowrap;
 				.box{
@@ -171,18 +175,20 @@
 	}
 	
 	.theme{
-		padding-top: 50rpx;
+		
 		.more{
 			font-size: 32rpx;
 			color: #888;
 		}
+		
+		.content{
+			margin: 30rpx;
+			padding-bottom: 30rpx; 
+			display: grid;
+			gap: 15rpx;
+			grid-template-columns: repeat(3,1fr);
+		}
 	}
-	.content{
-		margin: 30rpx;
-		padding: 0 30rpx;
-		display: grid;
-		gap: 15rpx;
-		grid-template-columns: repeat(3,1fr);
-	}
+	
 }
 </style>
