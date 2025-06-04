@@ -14,7 +14,7 @@
 			<view class="list">
 				<UserRow>
 					<template #icon>
-						<uni-icons type="download" size="20" color="#28b389"></uni-icons>
+						<uni-icons type="download" size="20"></uni-icons>
 					</template>
 					<template #text>
 						我的下载
@@ -24,7 +24,7 @@
 				
 				<UserRow>
 					<template #icon>
-						<uni-icons type="star" size="20" color="#28b389"></uni-icons>
+						<uni-icons type="star" size="20"></uni-icons>
 					</template>
 					<template #text>
 						我的评分
@@ -33,7 +33,7 @@
 				</UserRow>
 				<UserRow>
 					<template #icon>
-						<uni-icons type="chat" size="20" color="#28b389"></uni-icons>
+						<uni-icons type="chat" size="20"></uni-icons>
 					</template>
 					<template #text>
 						联系客服
@@ -53,7 +53,7 @@
 			<view class="list">
 				<UserRow>
 					<template #icon>
-						<uni-icons type="notification" size="20" color="#28b389"></uni-icons>
+						<uni-icons type="notification" size="20"></uni-icons>
 					</template>
 					<template #text>
 						订阅更新
@@ -62,7 +62,7 @@
 				</UserRow>
 				<UserRow>
 					<template #icon>
-						<uni-icons type="search" size="20" color="#28b389"></uni-icons>
+						<uni-icons type="search" size="20"></uni-icons>
 					</template>
 					<template #text>
 						常见问题
@@ -126,6 +126,13 @@ const clickContact = ()=>{
 				height: 100rpx;
 				width: 100%;
 				opacity: 0;
+			}
+			:deep(){
+				.uni-icons{
+					color: $brand-theme-color !important;
+					
+				}
+				
 			}
 		}
 		

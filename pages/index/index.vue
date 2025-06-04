@@ -9,7 +9,7 @@
 		</view>
 		<view class="notice">
 			<view class="left">
-				<uni-icons type="sound-filled" size="20" color="#28b389"></uni-icons>
+				<uni-icons type="sound-filled" size="20"></uni-icons>
 				<text class="text">公告</text>
 			</view>
 			
@@ -20,7 +20,7 @@
 			</view>
 			
 			<view class="right">
-				<uni-icons type="right" size="16" color="#28b389"></uni-icons>
+				<uni-icons type="right" size="16"></uni-icons>
 				
 				
 			</view>
@@ -34,7 +34,7 @@
 				<template #custom>
 					<view class="date">
 						
-						 <uni-icons type="calendar" size="18" color="#28b389"></uni-icons>
+						 <uni-icons type="calendar" size="18"></uni-icons>
 						 <uni-dateformat :date="Date.now()" format="dd日"></uni-dateformat>
 					</view>
 				</template>
@@ -103,13 +103,20 @@
 		margin: 0 auto;
 		border-radius: 80rpx;
 		display: flex;
+		:deep(){
+			.uni-icons{
+				color: $brand-theme-color !important;
+				
+			}
+			
+		}
 		.left{
 			width: 140rpx;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			.text{
-				color: #28b389;
+				color:$brand-theme-color;
 				font-weight: 600;
 				font-size: 28rpx;
 				}
@@ -142,9 +149,16 @@
 	.select{
 		padding-top: 50rpx;
 		.date{
-			color: #28b389;
+			color: $brand-theme-color;
 			display: flex;
 			align-items: center;
+			:deep(){
+				.uni-icons{
+					color: $brand-theme-color !important;
+					
+				}
+				
+			}
 			.text{
 				margin-left: 5rpx;
 			}

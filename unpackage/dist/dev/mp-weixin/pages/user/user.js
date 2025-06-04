@@ -19,28 +19,23 @@ const _sfc_main = {
         a: common_assets._imports_0$1,
         b: common_vendor.p({
           type: "download",
-          size: "20",
-          color: "#28b389"
+          size: "20"
         }),
         c: common_vendor.p({
           type: "star",
-          size: "20",
-          color: "#28b389"
+          size: "20"
         }),
         d: common_vendor.p({
           type: "chat",
-          size: "20",
-          color: "#28b389"
+          size: "20"
         }),
         e: common_vendor.p({
           type: "notification",
-          size: "20",
-          color: "#28b389"
+          size: "20"
         }),
         f: common_vendor.p({
           type: "search",
-          size: "20",
-          color: "#28b389"
+          size: "20"
         })
       };
     };
