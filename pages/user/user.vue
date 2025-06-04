@@ -1,53 +1,88 @@
 <template>
-	<view class="userLayout">
+	<view class="userLayout  pageBg">
 		<view class="userInfo">
 			<view class="avatar">
 				<image src="/static/images/xxmLogo.png" mode="aspectFill"></image>
 			</view>
 			<view class="ip">100.100.1000.100</view>
-			<view class="address">来自于：山东</view>
+			<view class="address">来自于：浙江</view>
 			
 		</view>
 		
+		
 		<view class="section">
 			<view class="list">
-				<view class="row" v-for="item in 3">
-					<view class="left">
-						<uni-icons type="download-filled" size="20" color="#28b389"></uni-icons>
-						<view class="text">我的下载</view>
-					</view>
-					<view class="right">
-						<view class="text">33</view>
-						<uni-icons type="right" size="15" color="#aaa"></uni-icons>
-						
-					</view>
-				</view>
+				<UserRow>
+					<template #icon>
+						<uni-icons type="download" size="20" color="#28b389"></uni-icons>
+					</template>
+					<template #text>
+						我的下载
+					</template>
+					
+				</UserRow>
+				
+				<UserRow>
+					<template #icon>
+						<uni-icons type="star" size="20" color="#28b389"></uni-icons>
+					</template>
+					<template #text>
+						我的评分
+					</template>
+					
+				</UserRow>
+				<UserRow>
+					<template #icon>
+						<uni-icons type="chat" size="20" color="#28b389"></uni-icons>
+					</template>
+					<template #text>
+						联系客服
+						<!-- #ifdef MP -->
+						<button open-type="contact" class="contact">联系客服</button>
+						<!-- #endif -->
+						<!-- #ifndef MP -->
+						<button class="contact" @click="clickContact">拨打电话</button>
+						<!-- #endif -->
+					</template>
+					
+				</UserRow>
 			</view>
 		</view>
 		
 		<view class="section">
 			<view class="list">
-				<view class="row" v-for="item in 2">
-					<view class="left">
-						<uni-icons type="download-filled" size="20" color="#28b389"></uni-icons>
-						<view class="text">我的下载</view>
-					</view>
-					<view class="right">
-						<view class="text">33</view>
-						<uni-icons type="right" size="15" color="#aaa"></uni-icons>
-						
-						</view>
-				</view>
+				<UserRow>
+					<template #icon>
+						<uni-icons type="notification" size="20" color="#28b389"></uni-icons>
+					</template>
+					<template #text>
+						订阅更新
+					</template>
+					
+				</UserRow>
+				<UserRow>
+					<template #icon>
+						<uni-icons type="search" size="20" color="#28b389"></uni-icons>
+					</template>
+					<template #text>
+						常见问题
+					</template>
+					
+				</UserRow>
 			</view>
 		</view>
 	</view>
 </template>
 
 <script setup>
-
+const clickContact = ()=>{
+	uni.makePhoneCall({
+		phoneNumber:"114"
+	})
+}
 </script>
 
-<style>
+<style lang="scss" scoped>
 .userLayout{
 	.userInfo{
 		display: flex;
@@ -84,28 +119,13 @@
 		border-radius: 10rpx;
 		box-shadow: 0 0 30rpx rgba(0,0,0,0.05);
 		.list{
-			.row{
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				padding: 0 30rpx;
-				height:  100rpx;
-				border-bottom: 1px solid #eee;
-				&:last-child{border-bottom: 0;}
-				.left{
-					display: flex;
-					align-items: center;
-					.text{
-						padding-left: 20rpx;
-						color: #666;
-					}
-				}
-				.right{
-					display: flex;
-					align-items: center;
-					font-size: 28rpx;
-					color: #aaa;
-				}
+			.contact{
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100rpx;
+				width: 100%;
+				opacity: 0;
 			}
 		}
 		
