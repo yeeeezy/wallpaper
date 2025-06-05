@@ -12,16 +12,17 @@
 		
 		<view class="section">
 			<view class="list">
-				<UserRow>
-					<template #icon>
-						<uni-icons type="download" size="20"></uni-icons>
-					</template>
-					<template #text>
-						我的下载
-					</template>
-					
-				</UserRow>
-				
+				<navigator url="/pages/classlist/classlist">
+					<UserRow>
+						<template #icon>
+							<uni-icons type="download" size="20"></uni-icons>
+						</template>
+						<template #text>
+							我的下载
+						</template>
+						
+					</UserRow>
+				</navigator>
 				<UserRow>
 					<template #icon>
 						<uni-icons type="star" size="20"></uni-icons>

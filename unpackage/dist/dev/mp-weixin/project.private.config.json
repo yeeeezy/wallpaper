@@ -3,11 +3,25 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/classify/classify",
-          "pathName": "pages/classify/classify",
+          "name": "pages/preview/preview",
+          "pathName": "pages/preview/preview",
           "query": "",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "pages/classlist/classlist",
+          "pathName": "pages/classlist/classlist",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/classify/classify",
+          "pathName": "pages/classify/classify",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
