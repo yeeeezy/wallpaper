@@ -3,11 +3,25 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/preview/preview",
-          "pathName": "pages/preview/preview",
+          "name": "pages/notice/detail",
+          "pathName": "pages/notice/detail",
           "query": "",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/preview/preview",
+          "pathName": "pages/preview/preview",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "pages/classlist/classlist",
@@ -25,5 +39,8 @@
         }
       ]
     }
+  },
+  "setting": {
+    "compileHotReLoad": true
   }
 }

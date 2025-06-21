@@ -1,9 +1,10 @@
 <template>
 	<view class="homeLayout  pageBg">
+		<custom-nav-bar></custom-nav-bar>
 		<view class="banner">
 			<swiper indicator-dots indicator-color="rgba(255,255,255,0.5)" circular indicator-active-color="white" autoplay="true">
-				<swiper-item v-for="item in 3">
-					<image src="/common/images/banner1.jpg" mode="aspectFill"></image>
+				<swiper-item v-for="item in bannerList" :key="item._id">
+					<image :src="item.picurl" mode="aspectFill"></image>
 				</swiper-item>
 			</swiper>
 		</view>
@@ -15,7 +16,11 @@
 			
 			<view class="center">
 				<swiper vertical="true" autoplay interval="1500" duration="300" circular>
-					<swiper-item v-for="item in 4" >文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容</swiper-item>
+					<swiper-item v-for="item in noticeList" :key="item._id" >
+						<navigator url="/pages/notice/detail">
+							{{item.title}}
+						</navigator>
+					</swiper-item>
 				</swiper>
 			</view>
 			
@@ -41,8 +46,9 @@
 			</common-title>
 			<view class="content">
 				<scroll-view scroll-x="true" >
-					<view class="box" v-for="item in 8 ">
-						<image src="/common/images/preview_small.webp" mode="aspectFill"></image>
+					<view class="box" v-for="item in randomList" :key="item._id" @click="goPreview">
+						
+						<image :src="item.smallPicurl" mode="aspectFill"></image>
 					</view>
 				</scroll-view>
 			</view>
@@ -59,7 +65,7 @@
 			</common-title>
 			
 			<view class="content">
-				<theme-item v-for="item in 8">
+				<theme-item v-for="item in classifyList" :key="item._id" :item="item">
 					
 				</theme-item>
 				<theme-item :isMore="true"></theme-item>
@@ -72,7 +78,65 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import {apiGetBanner} from "@/api/apis.js";
+import {apiGetDayRandom} from "@/api/apis.js";
+import {apiGetNotice, apiGetClassify} from "@/api/apis.js";
+	const bannerList = ref([]);
+	const randomList = ref([]);
+	const noticeList = ref([]);
+	const classifyList = ref([]);
+	const goPreview = () => {
+		uni.navigateTo({
+			url:"/pages/preview/preview"
+		})
+	}
 	
+	const getBanner = async () => {
+		let res = await apiGetBanner();
+		
+		if(res.errCode===0)
+		{
+			bannerList.value = res.data;
+			
+		}
+	}
+	
+	const getDayRandom = async () => {
+		let res = await apiGetDayRandom();
+		
+		if(res.errCode===0)
+		{
+			randomList.value = res.data;
+		}
+	}
+	const getNotice = async () => {
+		let res = await apiGetNotice();
+		if(res.errCode===0)
+		{
+			
+			noticeList.value = res.data;
+		}
+	}
+	
+	const getClassify = async () => {
+		let res = await apiGetClassify(
+		{
+			select:true,
+		});
+		
+		if(res.errCode===0)
+		{
+			
+			classifyList.value = res.data;
+			
+		}
+	}
+	
+	getBanner();
+	getDayRandom();
+	getNotice();
+	getClassify();
 </script>
 
 <style lang="scss" scoped>
